@@ -1,0 +1,19 @@
+Soy un pequeño empresario y he entrado a explorar el mundo inmobiliario...
+Mi nuevo emprendimiento tiene por nombre "NodeHouse".
+Resulta que ya tengo mi equipo de trabajo y hemos logrado conseguir contratos con algunos arrendadores.
+Ahora bien, mi trabajo me exige de cierta forma buscar el desarrollo de una herramienta que me permita no solo crecer como empresa, sino también, 
+ayudar a todas aquellas personas que buscan inmuebles para vivir.
+Básicamente quiero pedirle a su equipo de desarrolladores un sistema que mediante una página web que me permita publicar los inmuebles (apartamentos o casas) 
+para que las personas puedan ver las características de dichos inmuebles (# de habitaciones, # de baños, si tiene patio o no, el # de piso(primer piso, segundo... hasta n),  
+sector(municipio o ciudad donde se encuentra el inmueble), si la cocina es integral o no, un campo de descripción del inmueble y el valor que solicita el arrendador).
+Dentro de las consideraciones del sistema, la idea es que cualquier persona pueda ver los inmuebles y buscar lo que más se adecue a sus necesidades.
+También, debe haber un sistema de login para los asesores de mi empresa que se van a encargar de subir dichas publicaciones de inmuebles. Cualquiera de los asesores puede publicar inmuebles, 
+lo que va a diferenciar un inmueble que suba un asesor de otro, es que adicionalmente a ese inmueble se le va a guardar el número de dicho asesor y su nombre, 
+para que los usuarios de la página que entren a buscar inmuebles puedan contactar directamente al asesor que subió la publicación del inmueble. Para poder contactar al asesor, 
+considero que deberían poner un botón que dijera "contactar asesor" y que al darle click despliegue en un modal el nombre y el número.
+Por último, y para evaluar la popularidad de los inmuebles publicados, quiero que su equipo de desarrolladores guarde en algún lugar el número de veces que las personas dan click 
+en el inmueble al botón "contactar asesor" y que ese número se vaya actualizando en cada inmueble como un campo que diga: "número de interesados: ###".  Adicionalmente, quiero que 
+los asesores y los usuarios de la página vean en la parte superior de la página los primeros 3 inmuebles que tengan más visitas.
+Es importante que el usuario pueda buscar los inmuebles según lo que decida... cómo ejemplo si lo quiere con una habitación y que el valor no supere los 
+850mil pesos, debe haber algún campo de búsqueda en la página que le permita al usuario llenar esos datos (ejm: checkbox para saber si quiere que tenga patio. 
+checkbox para especificar si quiere que la cocina sea integral. campo que diga "presupuesto máximo" donde ponga el valor máximo que puede pagar por el arriendo de un inmueble).

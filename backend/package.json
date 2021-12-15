@@ -1,0 +1,27 @@
+{
+  "name": "nodehouse",
+  "version": "0.0.1",
+  "description": "En este proyecto buscamos facilitar que el cliente tenga facilidad  de encontrar la vivienda de sus sueños ",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.2",
+    "nodemailer": "^6.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjmurcia/NodeHouse.git"
+  },
+  "author": "Jhon Murcia, Jonathan Alvarado Y Liz Pabon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjmurcia/NodeHouse/issues"
+  },
+  "homepage": "https://github.com/jjmurcia/NodeHouse#readme"
+}
