@@ -5,14 +5,15 @@ const app = express();
 const {usuarios} = require("./routes/usuarios")
 connectDB();
 
+require("./db/db");
+
 app.use(express.json());
 app.use(cors());
-app.use('/usuarios', usuarios);
+app.use('/usuarios',usuarios);
+app.use(require("./routes/index"));
 
-app.listen(8080,()=>{
-    console.log("Estoy escuchando en el host: http://localhost:" + 8080);
-});
-
+app.listen("8080");
+console.log(`servidor en el puerto`, 8080);
 
 
 
