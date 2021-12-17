@@ -1,11 +1,10 @@
 <div class="position">
   <div class="text-center">
-    <main class="form-signin">
+    <main class="form-signin ">
       <form (submit)="login()">
-        <i class="fi fi-sr-Paw"><img src="../../../assets/logo.png" alt="" height="300"></i>
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-        <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" [(ngModel)]="datosLogin.email">
+        <div class="form-floating ">
+          <input type="email" class="form-control " id="floatingInput" placeholder="name@example.com" name="email" [(ngModel)]="datosLogin.email " >
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
@@ -18,22 +17,8 @@
           </label>
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        
         <a class="dropdown-item" href="#">Forgot password?</a>
-        <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
         <hr class="my-4">
-        <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
-        <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-4" type="submit">
-          Sign up with Twitter <i class="bi bi-twitter"></i>
-        </button>
-        <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-4" type="submit">
-          Sign up with Facebook <i class="bi bi-facebook"></i>
-        </button>
-        <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-4" type="submit">
-          Sign up with GitHub <i class="bi bi-github"></i>
-        </button>
-        <div class="dropdown-divider"></div>
-        <button class="w-100 btn btn-lg btn-success" type="submit" routerLink="home">Create new account</button>
         <p class="mb-3 text-muted">© 2021</p>
       </form>
     </main>

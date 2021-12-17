@@ -1,20 +1,16 @@
-import { Injectable } from '@angular/core';
-import { HttpInterceptor } from '@angular/common/http';
-import { AuthService } from './auth.service';
+import { TestBed } from '@angular/core/testing';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class InterceptorService implements HttpInterceptor {
+import { InterceptorService } from './interceptor.service';
 
-  constructor(private authService:AuthService) { }
+describe('InterceptorService', () => {
+  let service: InterceptorService;
 
-  intercept(req: any, next: any){
-    let token = req.clone({
-      setHeaders:{
-        Authorization: 'Bearer ' + this.authService.getToken()
-      }
-    })
-    return next.handle(token)
-  }
-}
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(InterceptorService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});
