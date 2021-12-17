@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  datosLogin = {
+    email: "",
+    pass: ""
+  }
+  constructor(private authService: AuthService, private routerService: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
+  login() {
+    console.log(this.datosLogin)
+    this.authService.loginUser(this.datosLogin).subscribe((res) => {
+      console.log(res)
+      if ((res as any).token) {
+        localStorage.setItem('token', (res as any).token)
+        this.routerService.navigate(['/home'])
+      }else{
+        this.toastr.error((res as any).msg, 'Error!');
+      }
+    })
+  }
 }
