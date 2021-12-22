@@ -274,11 +274,30 @@
       </div>
     </div>
   </div>
-  <!-- Vertically centered modal -->
-  <div class="d-grid gap-2 col-2 mx-auto mt-5">
-    <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#createData">
-      Publicar
-    </button>
+</div>
+<!-- ni idea -->
+<div class="container mt-5">
+  <div class="card text-center">
+    <div class="card-body">
+      <div class="d-flex flex-wrap justify-content-evenly mt-5">
+        <div class="card border-info mb-3" style="max-width: 18rem;" *ngFor="let inmueble of allInmueble">
+          <div class="card-header">{{inmueble.marca + " - " + inmueble.modelo}}</div>
+          <div class="card-body">
+            <h5 class="card-title">Información de la guitarra</h5>
+            <p class="card-text">{{"Tipo: " + inmueble.tipo}}</p>
+            <p class="card-text">{{"Precio: " + inmueble.precio}}</p>
+            <p class="card-text">{{"Stock: " + inmueble.stock}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Publicar -->
+      <div class="d-grid gap-2 col-2 mx-auto mt-5">
+        <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#createData">
+          Publicar
+        </button>
+      </div>
+      <!-- End Publicar -->
+    </div>
   </div>
 </div>
 <!-- Modal -->
@@ -292,38 +311,41 @@
       </div>
       <div class="modal-body">
         <div class="input-group mb-3">
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select" aria-label="Default select example" [(ngModel)]="inmueble.tipo">
             <option selected>Seleccione el tipo</option>
-            <option></option>
+            <option [value]="type" *ngFor="let type of this.typeInmueble">{{type}}></option>
           </select>
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">Marca</span>
-          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required />
+          <input [(ngModel)]="inmueble.marca" type="text" class="form-control" aria-label="Username"
+            aria-describedby="basic-addon1" required />
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">Modelo</span>
-          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required />
+          <input [(ngModel)]="inmueble.modelo" type="text" class="form-control" aria-label="Username"
+            aria-describedby="basic-addon1" required />
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">Precio</span>
-          <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required />
+          <input [(ngModel)]="inmueble.precio" type="number" class="form-control" aria-label="Username"
+            aria-describedby="basic-addon1" required />
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">Stock</span>
-          <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required />
+          <input [(ngModel)]="inmueble.stock" type="number" class="form-control" aria-label="Username"
+            aria-describedby="basic-addon1" required />
         </div>
         <div id="alerta"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cerrar
-        </button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="saveInmueble()">Guardar</button>
       </div>
     </div>
   </div>
 </div>
+<!-- End About modal -->
 <!-- End About album -->
 <!-- ======= footer Section ======= -->
 <div class="bg-dark text-white">
