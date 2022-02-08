@@ -9,7 +9,7 @@ const listAllInmuebles = (req, res) => {
 }
 
 const listAllBohemiaInmuebles = (req, res)=>{
-    Inmueble.find({"marca":"Bohemia"},(err, inmuebles) => {
+    Inmueble.find({"direccion":"Bohemia"},(err, inmuebles) => {
         if (err) return res.send(err)
         return res.send(inmuebles)
     })
@@ -17,7 +17,7 @@ const listAllBohemiaInmuebles = (req, res)=>{
 
 const saveInmueble = (req, res) => {
     let document = req.body;
-    Inmueble.find({ "modelo": document.modelo, "marca": document.marca }, (err, inmuebles) => {
+    Inmueble.find({ "direccion": document.direccion}, (err, inmuebles) => {
         if (err) return res.send(err);
         if (inmuebles.length > 0) {
             res.status(400).send({type:"error",msg:"El documento ya existe!"});
@@ -34,7 +34,7 @@ const saveInmueble = (req, res) => {
 }
 
 const updateInmueble = (req, res) => {
-    Inmueble.updateOne({ "modelo": req.query.modelo, "marca": req.query.marca }, req.body, (err, mongoResponse) => {
+    Inmueble.updateOne({ "direccion": req.query.direccion }, req.body, (err, mongoResponse) => {
         if (err) return res.send(err)
         console.log(mongoResponse)
         return mongoResponse.modifiedCount == 1 ? res.send("Documento actualizado") : res.send("No se actualizó el documento")
@@ -43,7 +43,7 @@ const updateInmueble = (req, res) => {
 
 const updatePriceInmueble = (req, res) => {
     if (req.body.precio) {
-        Inmueble.updateOne({ "modelo": req.query.modelo, "marca": req.query.marca }, { "precio": req.body.precio }, (err, mongoResponse) => {
+        Inmueble.updateOne({ "direccion": req.query.direccion }, { "precio": req.body.precio }, (err, mongoResponse) => {
             if (err) return res.send(err)
             console.log(mongoResponse)
             return mongoResponse.modifiedCount == 1 ? res.send("Documento actualizado") : res.send("No se actualizó el documento")
@@ -54,7 +54,7 @@ const updatePriceInmueble = (req, res) => {
 }
 
 const deleteInmueble = (req,res) => {
-    Inmueble.deleteOne({ "modelo": req.query.modelo, "marca": req.query.marca },(err,mongoResponse)=>{
+    Inmueble.deleteOne({ "direccion": req.query.direccion },(err,mongoResponse)=>{
         if(err) return res.send(err)
         console.log(mongoResponse)
         return mongoResponse.deletedCount == 1 ? res.send("Se eliminó el documento") : res.send("No se eliminó el documento")
@@ -62,7 +62,7 @@ const deleteInmueble = (req,res) => {
 }
 
 const searchInmueblesByBranch = (req,res)=>{
-    Inmueble.find({"marca":req.query.marca},(err, inmuebles) => {
+    Inmueble.find({"direccion":req.query.direccion},(err, inmuebles) => {
         if (err) return res.send(err)
         return res.send(inmuebles)
     })

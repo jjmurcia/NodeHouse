@@ -4,16 +4,19 @@ const inmuebleSchema = new Schema({
     tipo:{
         type: String
     },
-    marca:{
-        type: String
-    },
     precio:{
         type: Number
     },
-    stock:{
+    habitaciones:{
         type: Number
     },
-    modelo: {
+    ciudad:{
+        type: String
+    },
+    localidad: {
+        type: String
+    },
+    direccion: {
         type: String
     }
 });

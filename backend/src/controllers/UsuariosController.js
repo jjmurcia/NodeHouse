@@ -17,6 +17,7 @@ const login = (req, res) => {
         res.send({msg:"No se está enviando el parametro 'email' o 'pass'"})
 }
 
+
 module.exports = {
     login
 }
