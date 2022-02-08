@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InmuebleService } from 'src/app/services/inmueble.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +14,13 @@ export class HomeComponent implements OnInit {
 
   inmueble: any = {
     tipo:"",
-    marca: "",
     precio: "",
-    stock:"",
-    modelo:""
+    habitaciones: "",
+    ciudad:"",
+    localidad:"",
+    direccion:""
   }
-  constructor(private inmuebleService: InmuebleService, private toastr: ToastrService) {
+  constructor(public authservices:AuthService, private inmuebleService: InmuebleService, private toastr: ToastrService) {
     this.typeInmueble = ["Apartamento", "Apartaestudio", "Casa"]
   }
 
@@ -33,7 +35,7 @@ export class HomeComponent implements OnInit {
   }
 
   saveInmueble(): void{
-    if(this.inmueble.tipo && this.inmueble.marca && this.inmueble.precio && this.inmueble.modelo && this.inmueble.stock){
+    if(this.inmueble.tipo && this.inmueble.precio && this.inmueble.habitaciones && this.inmueble.ciudad && this.inmueble.localidad && this.inmueble.direccion){
       this.inmuebleService.postCreateInmueble(this.inmueble).subscribe((respuesta)=>{
         if((respuesta as any).type=="error"){
           this.toastr.error((respuesta as any).msg, 'Error!');
@@ -49,16 +51,6 @@ export class HomeComponent implements OnInit {
   }
 
   deleteInmueble(): void{
-    if(this.inmueble.tipo && this.inmueble.marca && this.inmueble.precio && this.inmueble.modelo && this.inmueble.stock){
-      this.inmuebleService.postCreateInmueble(this.inmueble).subscribe((respuesta)=>{
-        if((respuesta as any).type=="error"){
-          this.toastr.error((respuesta as any).msg, 'Error!');
-        }else{
-          document.getElementById("closeModal")?.click()
-          this.toastr.success((respuesta as any).msg, 'Bien!');
-          this.getAllInmueble()
-        }
-      })
-    }
+
   }
 }
